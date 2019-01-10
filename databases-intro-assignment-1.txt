@@ -1,0 +1,153 @@
+Quesion 1: What data types do each of these values represent?
+
+A.
+
+   1. "A Clockwork Orange"    -> String
+   2. 42                      -> Integer
+   3. 09/02/1945              -> Date
+   4. 98.7                    -> Float
+   5. $15.99                  -> Currency
+
+*****
+
+Question 2: Explain when a database would be used. Explain when a text file would be used.
+
+A.
+
+Use databases when the following is important: 
+
+   a) Data integrity validation
+   b) Update data easily a reliably
+   c) Query tasks handling (and avoid crawling over a file)
+   d) Handle accesses with multiprocesses/multithreaded mechanisms
+   e) Handle accesses from networks
+   f) Have a more reliable data management process
+   g) Handle great amounts of data that needs indexing, efficient storage, and fast information retrieval
+   h) Have a more maintainable data structure
+   i) When data security is important
+
+When to use text files:
+
+   a) When data reading speed is not important (when data reaches a certain size)
+   b) When you don't mind using a linear searching algorithm with a Big O of O(n^2) for searching for data
+   c) When memory management is not important (databases take care of this for you as an example)
+   d) When keeping track of where data is located is not required
+   e) When you don't have to work collaboratively with other people. 2 people working on the same 
+      .txt file would definitely lead to problems sooner or later
+   f) When data security is not important
+
+*****
+
+Question 3: Describe one difference between SQL and other programming languages.
+
+A. SQL is a declarative while others might be imperative (C++, Ruby or Python)
+
+*****
+
+Question 4: In your own words, explain how the pieces of a database system fit together at a high level.
+
+A. First of all it is important to determine the size of the data that will be stored and the data types that will be used.
+Then, one of the advantages of using databases is the relationships that can be assigned among the data. This will make our 
+database more efficient when retrieving data, basically provide a logical structure to the data.
+
+It is impportant also to determine how data will be stored and accessed
+
+When the input data is not normalized, it is important to have a data normalization process so that we can guarantee that
+there will not be corrupted data.
+
+Finally, a graphical representation of the database model is always useful to have, so we have a clear hihg-level picture of it.
+
+*****
+
+Question 5: Explain the meaning of table, row, column, and value.
+
+A.
+
+Table: a table structure is a set of data elements that use a model of vertical columns and horizontal rows.
+Row: a row represents a single item in a table.
+Column: a column is a set of data values of a particular simple type.
+Value: values is a piece of data placed in the intersection of the column and row. A value is of a certain data type
+
+*****
+
+Question 6: List three data types that can be used in a table.
+
+A.
+
+1) Character
+2) Boolean
+3) Date
+
+*****
+
+Question 7: Given this payments table, provide an English description of the following queries and include their results:
+
+A.
+
+1)   SELECT date, amount
+     FROM payments;
+
+     Description: select the columns date and amount from the payments table
+     Results:
+
+      date	                     amount
+      2016-05-01T00:00:00.000Z	1500.0000
+      2016-05-10T00:00:00.000Z	37.0000
+      2016-05-15T00:00:00.000Z	124.9300
+      2016-05-23T00:00:00.000Z	54.7200
+
+2)   SELECT amount
+     FROM payments
+     WHERE amount > 500;
+
+     Description: select the column amount from the payments table and retrieve only the records where the amount is greater than 500
+     Results:
+
+     amount
+     1500.0000
+
+3)   SELECT *
+     FROM payments
+     WHERE payee = 'Mega Foods';
+
+     Description: select all columns from the table payments where payee is 'Mega Fods'
+
+     date	                  payee	      amount	memo
+     2016-05-15T00:00:00.000Z	Mega Foods	124.9300	Groceries   
+
+*****
+
+Question 8: Given this users table, write SQL queries using the following criteria and include the output:
+
+A.
+
+1) The email and sign-up date for the user named DeAndre Data.
+
+     Query SQL:   SELECT email, signup
+	               FROM users
+                  WHERE name = 'DeAndre Data'; 
+     Output:
+                  email	            signup
+                  datad@comcast.net	2008-01-20T00:00:00.000Z
+
+2) The user ID for the user with email 'aleesia.algorithm@uw.edu'.
+
+     Query SQL:   SELECT userid
+	               FROM users
+                  WHERE email = 'aleesia.algorithm@uw.edu';
+     Output:                        
+                  userid
+                  1
+
+3) All the columns for the user ID equal to 4.
+
+     Query SQL:   SELECT *
+	               FROM users
+                  WHERE userid = 4;
+     Output:
+                  userid	name	         email	            signup
+                  4	      Brandy Boolean	bboolean@nasa.gov	1999-10-15T00:00:00.000Z
+
+
+
+
